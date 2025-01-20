@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 12:48:07 by dande-je          #+#    #+#              #
-#    Updated: 2025/01/08 13:10:57 by dande-je         ###   ########.fr        #
+#    Updated: 2025/01/20 02:42:34 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,8 +66,8 @@ CC                             := c++
 CFLAGS                         = -Wall -Wextra -Werror -Ofast -Wunreachable-code -Wpedantic -std=c++98
 DFLAGS                         := -Wall -Wextra -Werror -g3 -std=c++98
 LFLAGS                         := -march=native
-COMPILE_OBJS                   = $(CC) $(CFLAGS) -c $< -o $@
-COMPILE_EXE                    = $(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) -o $(NAME)
+COMPILE_OBJS                   = $(CC) $(CFLAGS) $(LFLAGS) -c $< -o $@
+COMPILE_EXE                    = $(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 #******************************************************************************#
 #                                   DEFINE                                     #
