@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 13:08:20 by dande-je          #+#    #+#              #
-#    Updated: 2025/01/16 03:47:07 by dande-je         ###   ########.fr        #
+#    Updated: 2025/01/20 02:50:14 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,9 @@ RESET                           := \033[0m
 #******************************************************************************#
 
 SRCS_DIR                        := src/
+SRCS_MAIN_DIR                   := $(SRCS_DIR)main/
+SRCS_UTILS_DIR                  := $(SRCS_DIR)utils/
+INCS                            := src/
 BUILD_DIR                       := build/
 
 #******************************************************************************#
@@ -43,9 +46,12 @@ SLEEP                           := sleep 0.01
 
 NAME                            = phonebook
 
-SRCS_FILES                      += megaphone.cpp
+SRCS_FILES                      += $(addprefix $(SRCS_MAIN_DIR), main.cpp)
+SRCS_FILES                      += $(addprefix $(SRCS_UTILS_DIR), TerminalColor.cpp)
 
 OBJS                            += $(SRCS_FILES:%.cpp=$(BUILD_DIR)%.o)
+
+DEPS                            += $(OBJS:.o=.d)
 
 #******************************************************************************#
 #                               OUTPUTS MESSAGES                               #
@@ -65,10 +71,11 @@ COMP_MESSAGE                    = Building CPP object
 
 CC                             := c++
 CFLAGS                         = -Wall -Wextra -Werror -Ofast -Wunreachable-code -Wpedantic -std=c++98
+CPPFLAGS                       := $(addprefix -I,$(INCS)) -MMD -MP
 DFLAGS                         := -Wall -Wextra -Werror -g3 -std=c++98
 LFLAGS                         := -march=native
-COMPILE_OBJS                   = $(CC) $(CFLAGS) -c $< -o $@
-COMPILE_EXE                    = $(CC) $(CFLAGS) $(LDFLAGS) $(OBJS) -o $(NAME)
+COMPILE_OBJS                   = $(CC) $(CFLAGS) $(LFLAGS) $(CPPFLAGS) -c $< -o $@
+COMPILE_EXE                    = $(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 #******************************************************************************#
 #                                   DEFINE                                     #
