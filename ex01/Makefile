@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 13:08:20 by dande-je          #+#    #+#              #
-#    Updated: 2025/01/20 02:50:14 by dande-je         ###   ########.fr        #
+#    Updated: 2025/01/27 17:37:03 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS_DIR                        := src/
 SRCS_MAIN_DIR                   := $(SRCS_DIR)main/
 SRCS_UTILS_DIR                  := $(SRCS_DIR)utils/
 INCS                            := src/
+BIN_DIR                         := bin/
 BUILD_DIR                       := build/
 
 #******************************************************************************#
@@ -44,7 +45,7 @@ SLEEP                           := sleep 0.01
 #                                   FILES                                      #
 #******************************************************************************#
 
-NAME                            = phonebook
+NAME                            = $(BIN_DIR)phonebook
 
 SRCS_FILES                      += $(addprefix $(SRCS_MAIN_DIR), main.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_UTILS_DIR), TerminalColor.cpp)
@@ -102,6 +103,7 @@ define comp_objs
 endef
 
 define comp_exe
+	$(MKDIR) $(BIN_DIR)
 	$(COMPILE_EXE)
 	$(SLEEP)
 	printf "$(EXE_MESSAGE)\n$(RESET)"
@@ -114,7 +116,7 @@ define clean
 endef
 
 define fclean
-	$(RM) $(NAME)
+	$(RM) $(BIN_DIR)
 	$(SLEEP)
 	printf "$(RED)$(FCLEAN_MESSAGE)$(RESET)\n"
 endef
