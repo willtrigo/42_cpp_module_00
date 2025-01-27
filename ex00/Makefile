@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 12:48:07 by dande-je          #+#    #+#              #
-#    Updated: 2025/01/20 02:42:34 by dande-je         ###   ########.fr        #
+#    Updated: 2025/01/27 17:39:46 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ RESET                           := \033[0m
 #                                   PATH                                       #
 #******************************************************************************#
 
+BIN_DIR                         := bin/
 BUILD_DIR                       := build/
 
 #******************************************************************************#
@@ -40,7 +41,7 @@ SLEEP                           := sleep 0.01
 #                                   FILES                                      #
 #******************************************************************************#
 
-NAME                            = megaphone
+NAME                            = $(BIN_DIR)megaphone
 
 SRCS_FILES                      += megaphone.cpp
 
@@ -94,6 +95,7 @@ define comp_objs
 endef
 
 define comp_exe
+	$(MKDIR) $(BIN_DIR)
 	$(COMPILE_EXE)
 	$(SLEEP)
 	printf "$(EXE_MESSAGE)\n$(RESET)"
@@ -106,7 +108,7 @@ define clean
 endef
 
 define fclean
-	$(RM) $(NAME)
+	$(RM) $(BIN)
 	$(SLEEP)
 	printf "$(RED)$(FCLEAN_MESSAGE)$(RESET)\n"
 endef
