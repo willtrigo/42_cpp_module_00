@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 12:48:07 by dande-je          #+#    #+#              #
-#    Updated: 2025/01/27 17:39:46 by dande-je         ###   ########.fr        #
+#    Updated: 2025/01/27 17:44:44 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -108,7 +108,7 @@ define clean
 endef
 
 define fclean
-	$(RM) $(BIN)
+	$(RM) $(BIN_DIR)
 	$(SLEEP)
 	printf "$(RED)$(FCLEAN_MESSAGE)$(RESET)\n"
 endef
