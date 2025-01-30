@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Default.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/14 15:24:34 by dande-je          #+#    #+#             */
-/*   Updated: 2025/01/30 01:16:54 by dande-je         ###   ########.fr       */
+/*   Created: 2025/01/28 03:02:29 by dande-je          #+#    #+#             */
+/*   Updated: 2025/01/29 01:33:07 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "presentation/cli/Prompt.hpp"
-#include <cstdlib>
+#ifndef DEFAULT_HPP
+#define DEFAULT_HPP
 
-int main() {
-  Prompt prompt;
+enum DefaultValues {
+  DEFAULT
+};
 
-  prompt.run();
-	return (EXIT_SUCCESS);
-}
+#endif // DEFAULT_HPP
