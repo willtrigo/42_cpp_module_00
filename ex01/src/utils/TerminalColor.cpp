@@ -6,52 +6,31 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 02:24:42 by dande-je          #+#    #+#             */
-/*   Updated: 2025/01/20 02:37:59 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/01/29 02:25:16 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "TerminalColor.hpp"
 #include <string>
+#include <utility>
 
-const std::string TerminalColor::RESET = "\033[0m";
-const std::string TerminalColor::RED = "\033[1;31m";
-const std::string TerminalColor::GREEN = "\033[1;32m";
-const std::string TerminalColor::YELLOW = "\033[1;33m";
-const std::string TerminalColor::BLUE = "\033[1;34m";
-const std::string TerminalColor::WHITE = "\033[1;37m";
+TerminalColor::TerminalColor() {}
+TerminalColor::~TerminalColor() {}
 
 TerminalColor& TerminalColor::getInstance() {
   static TerminalColor instance;
   return instance;
 }
 
-TerminalColor::TerminalColor() {}
-TerminalColor::~TerminalColor() {}
+const std::pair<ColorCode, std::string> TerminalColor::COLOR_MAP[] = {
+  std::make_pair(RED, "\033[31m"),
+  std::make_pair(GREEN, "\033[32m"),
+  std::make_pair(YELLOW, "\033[33m"),
+  std::make_pair(BLUE, "\033[34m"),
+  std::make_pair(WHITE, "\033[37m"),
+  std::make_pair(RESET, "\033[0m")
+};
 
-std::string TerminalColor::setColor(const std::string& color, const std::string& str) const {
-  return color + str + RESET;
-}
-
-std::string TerminalColor::red(const std::string& str) const {
-  return setColor(RED, str);
-}
-
-std::string TerminalColor::green(const std::string& str) const {
-  return setColor(GREEN, str);
-}
-
-std::string TerminalColor::yellow(const std::string& str) const {
-  return setColor(YELLOW, str);
-}
-
-std::string TerminalColor::blue(const std::string& str) const {
-  return setColor(BLUE, str);
-}
-
-std::string TerminalColor::white(const std::string& str) const {
-  return setColor(WHITE, str);
-}
-
-const std::string& TerminalColor::reset() const {
-  return RESET;
+std::string TerminalColor::setColor(ColorCode color, const std::string& str) const {
+  return COLOR_MAP[color].second + str + COLOR_MAP[RESET].second;
 }
