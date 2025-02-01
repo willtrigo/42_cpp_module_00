@@ -6,11 +6,12 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 02:24:42 by dande-je          #+#    #+#             */
-/*   Updated: 2025/01/29 02:25:16 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/01 02:04:34 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "TerminalColor.hpp"
+#include <stdexcept>
 #include <string>
 #include <utility>
 
@@ -20,6 +21,15 @@ TerminalColor::~TerminalColor() {}
 TerminalColor& TerminalColor::getInstance() {
   static TerminalColor instance;
   return instance;
+}
+
+TerminalColor::TerminalColor(const TerminalColor&) {
+  throw std::runtime_error("Copying of TerminalColor is not allowed");
+}
+
+TerminalColor& TerminalColor::operator=(const TerminalColor&) {
+  throw std::runtime_error("Copy assignment of TerminalColor is not allowed");
+  return *this;
 }
 
 const std::pair<ColorCode, std::string> TerminalColor::COLOR_MAP[] = {
