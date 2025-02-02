@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 03:02:29 by dande-je          #+#    #+#             */
-/*   Updated: 2025/01/29 01:33:07 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/01 02:30:12 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define DEFAULT_HPP
 
 enum DefaultValues {
-  DEFAULT
+  DEFAULT,
+  PADDING_RIGHT = 10
 };
 
 #endif // DEFAULT_HPP

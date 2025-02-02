@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:37:31 by dande-je          #+#    #+#             */
-/*   Updated: 2025/01/28 03:06:56 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/01 04:27:10 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Contact::Contact(const Contact& other) {
 Contact& Contact::operator=(const Contact& other) {
   if (this != &other) {
     for (int i = DEFAULT; i < TOTAL_FIELDS; i++) {
-      _fields[i] = other._fields[i];
+      m_fields[i] = other.m_fields[i];
     }
   }
   return *this;
@@ -34,7 +34,7 @@ Contact::~Contact() {}
 
 void Contact::set(Fields field, const std::string& value) {
   if (field >= FIRST_NAME && field <= DARKEST_SECRET) {
-    _fields[field] = value;
+    m_fields[field] = value;
   } else {
     throw std::out_of_range("Invalid field");
   }
@@ -42,7 +42,7 @@ void Contact::set(Fields field, const std::string& value) {
 
 const std::string& Contact::get(Fields field) const {
   if (field >= FIRST_NAME && field <= DARKEST_SECRET) {
-    return _fields[field];
+    return m_fields[field];
   }
   throw std::out_of_range("Invalid field");
 }

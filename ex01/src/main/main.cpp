@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 15:24:34 by dande-je          #+#    #+#             */
-/*   Updated: 2025/01/30 01:16:54 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/01 14:35:28 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ int main() {
   Prompt prompt;
 
   prompt.run();
-	return (EXIT_SUCCESS);
+	return EXIT_SUCCESS;
 }

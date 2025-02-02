@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 22:32:10 by dande-je          #+#    #+#             */
-/*   Updated: 2025/01/28 03:13:57 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/01 04:26:45 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 #include <string>
 
+enum Fields {
+  FIRST_NAME,
+  LAST_NAME,
+  NICKNAME,
+  PHONE_NUMBER,
+  DARKEST_SECRET,
+  TOTAL_FIELDS
+};
+
 class Contact {
 public:
-  enum Fields {
-    FIRST_NAME,
-    LAST_NAME,
-    NICKNAME,
-    PHONE_NUMBER,
-    DARKEST_SECRET,
-    TOTAL_FIELDS
-  };
-
   Contact();
   Contact(const Contact& other);
   Contact& operator=(const Contact& other);
@@ -35,7 +35,7 @@ public:
   const std::string& get(Fields field) const;
 
 private:
-  std::string _fields[TOTAL_FIELDS];
+  std::string m_fields[TOTAL_FIELDS];
 };
 
 #endif

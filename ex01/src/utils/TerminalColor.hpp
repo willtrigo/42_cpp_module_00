@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 04:50:20 by dande-je          #+#    #+#             */
-/*   Updated: 2025/01/29 02:43:42 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/01 14:39:58 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ enum ColorCode {
   YELLOW,
   BLUE,
   WHITE,
+  ORANGE,
   RESET,
   TOTAL_COLOR
 };

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 02:24:42 by dande-je          #+#    #+#             */
-/*   Updated: 2025/02/01 02:04:34 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/02 02:28:28 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ const std::pair<ColorCode, std::string> TerminalColor::COLOR_MAP[] = {
   std::make_pair(YELLOW, "\033[33m"),
   std::make_pair(BLUE, "\033[34m"),
   std::make_pair(WHITE, "\033[37m"),
+  std::make_pair(ORANGE, "\x1B[38;5;202m"),
   std::make_pair(RESET, "\033[0m")
 };
 
