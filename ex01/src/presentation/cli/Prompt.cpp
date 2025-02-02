@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:36:49 by dande-je          #+#    #+#             */
-/*   Updated: 2025/02/02 04:47:13 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/02 06:06:41 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void Prompt::run() {
     } else if (m_input == "SEARCH") {
       displayContacts();
     } else if (m_input == "EXIT") {
-      std::cout << "Exit phonebook" << std::endl;
+      std::cout << m_color.setColor(ORANGE, "Exit phonebook") << std::endl;
       break;
     } else {
       std::cout << m_color.setColor(RED, "Invalid command") << std::endl;
@@ -90,15 +90,23 @@ void Prompt::getInput() {
     }
   }
   m_phonebook.addContact(contact);
+  std::cout << m_color.setColor(GREEN, "New contact added") << std::endl;
 }
 
 void Prompt::displayContacts() {
   if (!m_phonebook.getContacts()) {
     std::cout << m_color.setColor(RED, "Phone book has 0 contacts") << std::endl;
   } else {
+    std::cout << m_color.setColor(BLUE, "Your contacts:") << std::endl;
     std::cout << std::setw(PADDING_RIGHT) << "Index" << m_color.setColor(BLUE, "|")
       << std::setw(PADDING_RIGHT) << "First Name" << m_color.setColor(BLUE, "|")
       << std::setw(PADDING_RIGHT) << "Last Name" << m_color.setColor(BLUE, "|")
       << std::setw(PADDING_RIGHT) << "Nickname" << m_color.setColor(BLUE, "|") << std::endl;
+    for (int i = DEFAULT; i < m_phonebook.getContacts(); i++) {
+      std::cout << std::setw(PADDING_RIGHT) << i + CONTACT << m_color.setColor(BLUE, "|")
+        << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, FIRST_NAME, true) << m_color.setColor(BLUE, "|")
+        << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, LAST_NAME, true) << m_color.setColor(BLUE, "|")
+        << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, NICKNAME, true) << m_color.setColor(BLUE, "|") << std::endl;
+    }
   }
 }

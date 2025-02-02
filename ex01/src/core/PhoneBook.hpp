@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 02:33:29 by dande-je          #+#    #+#             */
-/*   Updated: 2025/02/02 04:34:47 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/02 05:51:08 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ class PhoneBook {
   void addContact(const Contact& contact);
   bool validateField(std::string str, int minChr, int(*validade)(int));
   int getContacts();
+  std::string getContactInfo(int id, Fields field, bool formated);
 
  private:
   Contact m_contacts[TOTAL_CONTACTS];
