@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 23:53:03 by dande-je          #+#    #+#             */
-/*   Updated: 2025/02/02 04:46:37 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/03 15:48:33 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Prompt {
 
   bool getLine();
   void displayContacts();
+  void displayContact(int i, bool formated);
   void getInput();
 };
 

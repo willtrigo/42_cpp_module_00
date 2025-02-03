@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:36:49 by dande-je          #+#    #+#             */
-/*   Updated: 2025/02/02 06:06:41 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/03 16:22:32 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "utils/TerminalColor.hpp"
 #include <csignal>
 #include <cstdio>
+#include <cstdlib>
 #include <iomanip>
 #include <iostream>
 #include <ostream>
@@ -97,16 +98,41 @@ void Prompt::displayContacts() {
   if (!m_phonebook.getContacts()) {
     std::cout << m_color.setColor(RED, "Phone book has 0 contacts") << std::endl;
   } else {
-    std::cout << m_color.setColor(BLUE, "Your contacts:") << std::endl;
-    std::cout << std::setw(PADDING_RIGHT) << "Index" << m_color.setColor(BLUE, "|")
-      << std::setw(PADDING_RIGHT) << "First Name" << m_color.setColor(BLUE, "|")
-      << std::setw(PADDING_RIGHT) << "Last Name" << m_color.setColor(BLUE, "|")
-      << std::setw(PADDING_RIGHT) << "Nickname" << m_color.setColor(BLUE, "|") << std::endl;
-    for (int i = DEFAULT; i < m_phonebook.getContacts(); i++) {
-      std::cout << std::setw(PADDING_RIGHT) << i + CONTACT << m_color.setColor(BLUE, "|")
-        << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, FIRST_NAME, true) << m_color.setColor(BLUE, "|")
-        << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, LAST_NAME, true) << m_color.setColor(BLUE, "|")
-        << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, NICKNAME, true) << m_color.setColor(BLUE, "|") << std::endl;
+    while (true) {
+      std::cout << m_color.setColor(BLUE, "Your contacts:") << std::endl;
+      std::cout << std::setw(PADDING_RIGHT) << "Index" << m_color.setColor(BLUE, "|")
+        << std::setw(PADDING_RIGHT) << "First Name" << m_color.setColor(BLUE, "|")
+        << std::setw(PADDING_RIGHT) << "Last Name" << m_color.setColor(BLUE, "|")
+        << std::setw(PADDING_RIGHT) << "Nickname" << m_color.setColor(BLUE, "|") << std::endl;
+      for (int i = DEFAULT; i < m_phonebook.getContacts(); i++) {
+        displayContact(i, true);
+      }
+      std::cout << "Choose one index to display: (1 to " << m_phonebook.getContacts() << "): ";
+      if (!getLine()) {
+        continue;
+      }
+      int index = std::atoi(m_input.c_str());
+      if (!(index < CONTACT || index > m_phonebook.getContacts())) {
+        displayContact(--index, false);
+        break;
+      } else {
+        std::cout << m_color.setColor(RED, "Invalid index") << std::endl;
+      }
     }
+  }
+}
+
+void Prompt::displayContact(int i, bool formated) {
+  if (formated) {
+    std::cout << std::setw(PADDING_RIGHT) << i + CONTACT << m_color.setColor(BLUE, "|")
+      << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, FIRST_NAME, formated) << m_color.setColor(BLUE, "|")
+      << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, LAST_NAME, formated) << m_color.setColor(BLUE, "|")
+      << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, NICKNAME, formated) << m_color.setColor(BLUE, "|") << std::endl;
+  } else {
+    std::cout << m_color.setColor(BLUE, "First name: ") << m_phonebook.getContactInfo(i, FIRST_NAME, formated) << std::endl
+    << m_color.setColor(BLUE, "Last name: ") << m_phonebook.getContactInfo(i, LAST_NAME, formated) << std::endl
+    << m_color.setColor(BLUE, "Nickname: ") << m_phonebook.getContactInfo(i, NICKNAME, formated) << std::endl
+    << m_color.setColor(BLUE, "Phone number: ") << m_phonebook.getContactInfo(i, PHONE_NUMBER, formated) << std::endl
+    << m_color.setColor(BLUE, "Darkest secret: ") << m_phonebook.getContactInfo(i, DARKEST_SECRET, formated) << std::endl;
   }
 }
