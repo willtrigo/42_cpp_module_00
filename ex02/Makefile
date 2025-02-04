@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 23:53:03 by dande-je          #+#    #+#              #
-#    Updated: 2025/02/04 01:05:02 by dande-je         ###   ########.fr        #
+#    Updated: 2025/02/04 18:13:58 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,9 +59,9 @@ DEPS                            += $(OBJS:.o=.d)
 COUNT                           = 0
 OBJS_COUNT                      = 0
 MATH                            = 0
-CLEAN_MESSAGE                   := phonebook objects deleted
-FCLEAN_MESSAGE                  := phonebook deleted
-EXE_MESSAGE                     = $(RESET)[100%%] $(GREEN)Built target phonebook
+CLEAN_MESSAGE                   := recover_lost_file objects deleted
+FCLEAN_MESSAGE                  := recover_lost_file deleted
+EXE_MESSAGE                     = $(RESET)[100%%] $(GREEN)Built target recover_lost_file
 COMP_MESSAGE                    = Building CPP object
 
 #******************************************************************************#
