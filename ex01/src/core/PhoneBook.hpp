@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 02:33:29 by dande-je          #+#    #+#             */
-/*   Updated: 2025/02/04 18:26:59 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/02/27 16:26:42 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define PHONEBOOK_HPP
 
 #include "infrastructure/storage/Contact.hpp"
+#include <string>
 
 enum PhoneBookEnum {
   CONTACT = 1,
