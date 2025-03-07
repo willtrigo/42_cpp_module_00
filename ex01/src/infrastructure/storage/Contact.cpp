@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:37:31 by dande-je          #+#    #+#             */
-/*   Updated: 2025/02/01 04:27:10 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/07 01:06:46 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Contact::Contact(const Contact& other) {
 
 Contact& Contact::operator=(const Contact& other) {
   if (this != &other) {
-    for (int i = DEFAULT; i < TOTAL_FIELDS; i++) {
+    for (int i = DEFAULT; i < TOTAL_FIELDS; ++i) {
       m_fields[i] = other.m_fields[i];
     }
   }
