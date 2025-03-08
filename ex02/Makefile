@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 23:53:03 by dande-je          #+#    #+#              #
-#    Updated: 2025/02/04 18:13:58 by dande-je         ###   ########.fr        #
+#    Updated: 2025/03/07 22:38:15 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SLEEP                           := sleep 0.01
 #                                   FILES                                      #
 #******************************************************************************#
 
-NAME                            = $(BIN_DIR)recover_lost_file
+NAME_OUTPUT                     = recover_lost_file
+NAME                            = $(BIN_DIR)$(NAME_OUTPUT)
 
 SRCS_FILES                      += $(addprefix $(SRCS_MAIN_DIR), tests.cpp \
 								   Account.cpp)
@@ -59,9 +60,9 @@ DEPS                            += $(OBJS:.o=.d)
 COUNT                           = 0
 OBJS_COUNT                      = 0
 MATH                            = 0
-CLEAN_MESSAGE                   := recover_lost_file objects deleted
-FCLEAN_MESSAGE                  := recover_lost_file deleted
-EXE_MESSAGE                     = $(RESET)[100%%] $(GREEN)Built target recover_lost_file
+CLEAN_MESSAGE                   := $(NAME_OUTPUT) objects deleted
+FCLEAN_MESSAGE                  := $(NAME_OUTPUT) deleted
+EXE_MESSAGE                     = $(RESET)[100%%] $(GREEN)Built target $(NAME_OUTPUT)
 COMP_MESSAGE                    = Building CPP object
 
 #******************************************************************************#
