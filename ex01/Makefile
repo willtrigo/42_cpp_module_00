@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/14 13:08:20 by dande-je          #+#    #+#              #
-#    Updated: 2025/02/01 03:03:49 by dande-je         ###   ########.fr        #
+#    Updated: 2025/03/07 22:35:46 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,8 @@ SLEEP                           := sleep 0.01
 #                                   FILES                                      #
 #******************************************************************************#
 
-NAME                            = $(BIN_DIR)phonebook
+NAME_OUTPUT                     = phonebook
+NAME                            = $(BIN_DIR)$(NAME_OUTPUT)
 
 SRCS_FILES                      += $(addprefix $(SRCS_MAIN_DIR), main.cpp)
 SRCS_FILES                      += $(addprefix $(SRCS_PROMPT_DIR), Prompt.cpp)
@@ -67,9 +68,9 @@ DEPS                            += $(OBJS:.o=.d)
 COUNT                           = 0
 OBJS_COUNT                      = 0
 MATH                            = 0
-CLEAN_MESSAGE                   := phonebook objects deleted
-FCLEAN_MESSAGE                  := phonebook deleted
-EXE_MESSAGE                     = $(RESET)[100%%] $(GREEN)Built target phonebook
+CLEAN_MESSAGE                   := $(NAME_OUTPUT) objects deleted
+FCLEAN_MESSAGE                  := $(NAME_OUTPUT) deleted
+EXE_MESSAGE                     = $(RESET)[100%%] $(GREEN)Built target $(NAME_OUTPUT)
 COMP_MESSAGE                    = Building CPP object
 
 #******************************************************************************#
