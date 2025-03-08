@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 12:48:07 by dande-je          #+#    #+#              #
-#    Updated: 2025/01/27 17:44:44 by dande-je         ###   ########.fr        #
+#    Updated: 2025/03/07 22:23:13 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,8 @@ SLEEP                           := sleep 0.01
 #                                   FILES                                      #
 #******************************************************************************#
 
-NAME                            = $(BIN_DIR)megaphone
+NAME_OUTPUT                     = megaphone
+NAME                            = $(BIN_DIR)$(NAME_OUTPUT)
 
 SRCS_FILES                      += megaphone.cpp
 
@@ -54,9 +55,9 @@ OBJS                            += $(SRCS_FILES:%.cpp=$(BUILD_DIR)%.o)
 COUNT                           = 0
 OBJS_COUNT                      = 0
 MATH                            = 0
-CLEAN_MESSAGE                   := Megaphone objects deleted
-FCLEAN_MESSAGE                  := Megaphone deleted
-EXE_MESSAGE                     = $(RESET)[100%%] $(GREEN)Built target megaphone
+CLEAN_MESSAGE                   := $(NAME_OUTPUT) objects deleted
+FCLEAN_MESSAGE                  := $(NAME_OUTPUT) deleted
+EXE_MESSAGE                     = $(RESET)[100%%] $(GREEN)Built target $(NAME_OUTPUT)
 COMP_MESSAGE                    = Building CPP object
 
 #******************************************************************************#
