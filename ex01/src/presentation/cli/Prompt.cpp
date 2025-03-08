@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:36:49 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/07 22:28:54 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/07 22:55:55 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,10 @@ bool Prompt::getLine() {
 void Prompt::run() {
 	std::signal(SIGINT, SIG_IGN);
   while (true) {
-    std::cout << "Enter command (" + m_color.setColor(GREEN, "ADD") +
-      ", " + m_color.setColor(BLUE, "SEARCH") +
-      ", " + m_color.setColor(ORANGE, "EXIT") + "): ";
+    std::cout << "Enter command ("
+              << m_color.setColor(GREEN, "ADD")
+              << ", " << m_color.setColor(BLUE, "SEARCH")
+              << ", " + m_color.setColor(ORANGE, "EXIT") + "): ";
     if (!getLine()) {
       continue;
     } else if (m_input == "ADD") {
@@ -102,9 +103,10 @@ void Prompt::displayContacts() {
     while (true) {
       std::cout << m_color.setColor(BLUE, "Your contacts:") << std::endl;
       std::cout << std::setw(PADDING_RIGHT) << "Index" << m_color.setColor(BLUE, "|")
-        << std::setw(PADDING_RIGHT) << "First Name" << m_color.setColor(BLUE, "|")
-        << std::setw(PADDING_RIGHT) << "Last Name" << m_color.setColor(BLUE, "|")
-        << std::setw(PADDING_RIGHT) << "Nickname" << m_color.setColor(BLUE, "|") << std::endl;
+                << std::setw(PADDING_RIGHT) << "First Name" << m_color.setColor(BLUE, "|")
+                << std::setw(PADDING_RIGHT) << "Last Name" << m_color.setColor(BLUE, "|")
+                << std::setw(PADDING_RIGHT) << "Nickname" << m_color.setColor(BLUE, "|")
+                << std::endl;
       for (int i = DEFAULT; i < m_phonebook.getContacts(); i++) {
         displayContact(i, true);
       }
@@ -125,15 +127,24 @@ void Prompt::displayContacts() {
 
 void Prompt::displayContact(int i, bool formated) {
   if (formated) {
-    std::cout << std::setw(PADDING_RIGHT) << i + CONTACT << m_color.setColor(BLUE, "|")
-      << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, FIRST_NAME, formated) << m_color.setColor(BLUE, "|")
-      << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, LAST_NAME, formated) << m_color.setColor(BLUE, "|")
-      << std::setw(PADDING_RIGHT) << m_phonebook.getContactInfo(i, NICKNAME, formated) << m_color.setColor(BLUE, "|") << std::endl;
+    std::cout << std::setw(PADDING_RIGHT) << i + CONTACT
+              << m_color.setColor(BLUE, "|") << std::setw(PADDING_RIGHT)
+              << m_phonebook.getContactInfo(i, FIRST_NAME, formated)
+              << m_color.setColor(BLUE, "|") << std::setw(PADDING_RIGHT)
+              << m_phonebook.getContactInfo(i, LAST_NAME, formated)
+              << m_color.setColor(BLUE, "|") << std::setw(PADDING_RIGHT)
+              << m_phonebook.getContactInfo(i, NICKNAME, formated)
+              << m_color.setColor(BLUE, "|") << std::endl;
   } else {
-    std::cout << m_color.setColor(BLUE, "First name: ") << m_phonebook.getContactInfo(i, FIRST_NAME, formated) << std::endl
-    << m_color.setColor(BLUE, "Last name: ") << m_phonebook.getContactInfo(i, LAST_NAME, formated) << std::endl
-    << m_color.setColor(BLUE, "Nickname: ") << m_phonebook.getContactInfo(i, NICKNAME, formated) << std::endl
-    << m_color.setColor(BLUE, "Phone number: ") << m_phonebook.getContactInfo(i, PHONE_NUMBER, formated) << std::endl
-    << m_color.setColor(BLUE, "Darkest secret: ") << m_phonebook.getContactInfo(i, DARKEST_SECRET, formated) << std::endl;
+    std::cout << m_color.setColor(BLUE, "First name: ")
+              << m_phonebook.getContactInfo(i, FIRST_NAME, formated) << std::endl
+              << m_color.setColor(BLUE, "Last name: ")
+              << m_phonebook.getContactInfo(i, LAST_NAME, formated) << std::endl
+              << m_color.setColor(BLUE, "Nickname: ")
+              << m_phonebook.getContactInfo(i, NICKNAME, formated) << std::endl
+              << m_color.setColor(BLUE, "Phone number: ")
+              << m_phonebook.getContactInfo(i, PHONE_NUMBER, formated) << std::endl
+              << m_color.setColor(BLUE, "Darkest secret: ")
+              << m_phonebook.getContactInfo(i, DARKEST_SECRET, formated) << std::endl;
   }
 }
