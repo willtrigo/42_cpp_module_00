@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 20:05:02 by dande-je          #+#    #+#             */
-/*   Updated: 2025/02/02 06:10:30 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/07 22:32:27 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ PhoneBook::PhoneBook(const PhoneBook& other) {
 
 PhoneBook& PhoneBook::operator=(const PhoneBook& other) {
   if (this != &other) {
-    for (int i = DEFAULT; i < TOTAL_CONTACTS; i++) {
+    for (int i = DEFAULT; i < TOTAL_CONTACTS; ++i) {
       this->m_contacts[i] = other.m_contacts[i]; 
     }
     this->m_contactIndex = other.m_contactIndex;
@@ -46,7 +46,7 @@ void PhoneBook::addContact(const Contact& contact) {
   if (m_contactIndex < TOTAL_CONTACTS) {
     m_contacts[m_contactIndex++] = contact;
   } else {
-    for (int i = DEFAULT; i < TOTAL_CONTACTS - CONTACT; i++) {
+    for (int i = DEFAULT; i < TOTAL_CONTACTS - CONTACT; ++i) {
       m_contacts[i] = m_contacts[i + CONTACT];
     }
     m_contacts[TOTAL_CONTACTS - CONTACT] = contact;
@@ -60,7 +60,7 @@ int PhoneBook::getContacts() {
 bool PhoneBook::validateField(std::string str, int minChr, int(*validade)(int)) {
   if (str.length() < static_cast<size_t>(minChr))
     return false;
-  for (size_t i = DEFAULT; i < str.length(); i++) {
+  for (size_t i = DEFAULT; i < str.length(); ++i) {
     if (!validade(str.at(i))) {
       return false;
     }

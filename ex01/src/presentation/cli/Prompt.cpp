@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 20:36:49 by dande-je          #+#    #+#             */
-/*   Updated: 2025/02/03 16:22:32 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/07 22:28:54 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void Prompt::run() {
 
 void Prompt::getInput() {
   Contact contact;
+
   for (int i = FIRST_NAME; i < TOTAL_FIELDS; i++) {
     const Field& field = PhoneBook::fields[i];
 
